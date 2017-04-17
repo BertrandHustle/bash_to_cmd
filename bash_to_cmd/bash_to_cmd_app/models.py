@@ -6,7 +6,7 @@ class Bash_Command(models.Model):
     # the literal name of the command
     bash_command = models.CharField(max_length=100)
     # corresponding cmd command
-    cmd_translation = models.OneToOneField('Cmd_Command', null=True)
+    cmd_translation = models.OneToOneField('Cmd_Command', null=True, blank=True)
     # what the command does
     purpose = models.CharField(max_length=200)
     # link to man page for command
@@ -20,7 +20,7 @@ class Cmd_Command(models.Model):
     # the literal name of the command
     cmd_command = models.CharField(max_length=100)
     # corresponding bash command
-    bash_translation = models.OneToOneField(Bash_Command)
+    bash_translation = models.OneToOneField(Bash_Command, null=True, blank=True)
     # what the command does
     purpose = models.CharField(max_length=200)
     # link to man page for command
